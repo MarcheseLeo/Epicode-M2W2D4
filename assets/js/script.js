@@ -35,5 +35,47 @@ const amy = {
 }
 
 const prices = [34, 5, 2]
-const shippingCost = 50
 let utenteCheEffettuaLAcquisto = amy //cambia il valore qui per provare se il tuo algoritmo funziona!
+
+let utenti = []
+utenti.push(marco, paul, amy)
+let ambassadors = []
+
+prices.push(40)
+for (let utente of utenti) {
+  effettuaAcquisto(utente, prices, ambassadors)
+}
+
+console.log(ambassadors)
+
+function effettuaAcquisto(utente, prices, ambassadors) {
+  let discountedPrice = 0
+  let finalPrice = 0
+  let isAmbassadorMsg = ""
+  let total = 0
+  const shippingCost = 50
+  const discount = 0.30
+  
+  for (let i = 0; i < prices.length; i++) {
+    total += prices[i]
+  }
+
+  if (utente.isAmbassador) {
+    discountedPrice = total - (total * discount)
+    finalPrice = checkShippingCost(discountedPrice)
+    isAmbassadorMsg = "e' un ambassador"
+    ambassadors.push(utente)
+  } else {
+    finalPrice = checkShippingCost(total)
+    isAmbassadorMsg = "non e' un ambassador"
+  }
+  console.log(`${utente.name} ${utente.lastName} ${isAmbassadorMsg} , costo carrello: ${finalPrice}`)
+}
+
+function checkShippingCost(price) {
+  if (price >= 100) {
+    return price
+  } else {
+    return price + 50
+  }
+}
