@@ -41,7 +41,7 @@ let utenti = []
 utenti.push(marco, paul, amy)
 let ambassadors = []
 
-prices.push(40)
+
 for (let utente of utenti) {
   effettuaAcquisto(utente, prices, ambassadors)
 }
@@ -55,7 +55,7 @@ function effettuaAcquisto(utente, prices, ambassadors) {
   let total = 0
   const shippingCost = 50
   const discount = 0.30
-  
+
   for (let i = 0; i < prices.length; i++) {
     total += prices[i]
   }
