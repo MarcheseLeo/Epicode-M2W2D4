@@ -81,7 +81,8 @@ function effettuaAcquisto(utente) {
   }
 
   
-  name.textContent = `Nome: ${utente.name}`
+  
+  name.textContent= `Nome: ${utente.name}`;
   lastName.textContent = `Cognome: ${utente.lastName}`
   isAmbassador.textContent = ` ${isAmbassadorMsg}`
   carrello.textContent = `Prezzo carrello: ${total}`
