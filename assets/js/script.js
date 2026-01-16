@@ -71,12 +71,12 @@ function effettuaAcquisto(utente) {
     isAmbassadorMsg = "E' un ambassador"
     isAmbassador.innerHTML = `<p>${isAmbassadorMsg}</p> <i class="fa-solid fa-check" style='color:green'></i>`
     ambassadors.push(utente)
-    prezzoFinale.innerHTML = `<h3>Prezzo totale:</h3> <p>${50}</p> <p class="discount">-30%</p>`
+    prezzoFinale.innerHTML = `<h3>Prezzo totale:</h3> <p>${checkShippingCost(discountedPrice)}</p> <p class="discount">-30%</p>`
   } else {
     finalPrice = checkShippingCost(total)
     isAmbassadorMsg = "Non e' un ambassador"
     isAmbassador.innerHTML = `<p>${isAmbassadorMsg}</p> <i class="fa-solid fa-xmark" style='color:red'></i>`
-    prezzoFinale.innerHTML = `<h3>Prezzo totale:</h3> <p>${50}</p>`
+    prezzoFinale.innerHTML = `<h3>Prezzo totale:</h3> <p>${checkShippingCost(total)}</p>`
   }
 
   
