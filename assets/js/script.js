@@ -85,9 +85,9 @@ function effettuaAcquisto(utente) {
   name.textContent= `Nome: ${utente.name}`;
   lastName.textContent = `Cognome: ${utente.lastName}`
   isAmbassador.textContent = ` ${isAmbassadorMsg}`
-  carrello.textContent = `Prezzo carrello: ${total}`
-  spedizione.textContent = `Costo spedizione: ${50}`
-  prezzoFinale.textContent = `Prezzo totale: ${finalPrice}`
+  carrello.textContent = `Prezzo carrello: € ${total}`
+  spedizione.textContent = `Costo spedizione: € ${50}`
+  prezzoFinale.textContent = `Prezzo totale: € ${finalPrice}`
   console.log(`${utente.name} ${utente.lastName} ${isAmbassadorMsg} , costo carrello: ${finalPrice}`)
 }
 
