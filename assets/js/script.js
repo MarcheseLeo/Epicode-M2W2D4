@@ -69,7 +69,7 @@ function effettuaAcquisto(utente) {
     discountedPrice = total - (total * discount)
     finalPrice = checkShippingCost(discountedPrice)
     isAmbassadorMsg = "E' un ambassador"
-    isAmbassador.style.color = "green"
+    isAmbassador.innerHTML = `<p>${isAmbassadorMsg}</p> <i class="fa-solid fa-check" style='color:green'></i>`
     ambassadors.push(utente)
     sconto.textContent = "Sconto del 30%"
     sconto.style.display = "block"
@@ -77,14 +77,14 @@ function effettuaAcquisto(utente) {
   } else {
     finalPrice = checkShippingCost(total)
     isAmbassadorMsg = "Non e' un ambassador"
-    isAmbassador.style.color = "red"
+    isAmbassador.innerHTML = `<p>${isAmbassadorMsg}</p> <i class="fa-solid fa-xmark" style='color:red'></i>`
     sconto.style.display = "none"
   }
 
   
   name.innerHTML = `<h3>Name:</h3> <p>${utente.name}</p>`
   lastName.innerHTML = `<h3>Cognome:</h3> <p>${utente.lastName}</p>`
-  isAmbassador.innerHTML = `<p>${isAmbassadorMsg}</p>`
+
   carrello.innerHTML = `<h3>Prezzo carrello:</h3> <p>${total}</p>`
   spedizione.innerHTML = `<h3>Costo spedizione:</h3> <p>${50}</p>`
   prezzoFinale.innerHTML = `<h3>Prezzo totale:</h3> <p>${50}</p>`
