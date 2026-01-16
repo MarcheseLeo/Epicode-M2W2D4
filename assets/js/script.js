@@ -45,7 +45,7 @@ utenti.push(marco, paul, amy)
 
 console.log("Ambasciatori:", ambassadors)
 
-function effettuaAcquisto(utente, prices, ambassadors) {
+function effettuaAcquisto(utente) {
   let total = 0
   let discountedPrice = 0
   let finalPrice = 0
