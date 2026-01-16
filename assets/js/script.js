@@ -42,11 +42,8 @@ let ambassadors = []
 
 utenti.push(marco, paul, amy)
 
-for (let utente of utenti) {
-  effettuaAcquisto(utente, prices, ambassadors)
-}
 
-console.log(ambassadors)
+console.log("Ambasciatori:", ambassadors)
 
 function effettuaAcquisto(utente, prices, ambassadors) {
   let total = 0
@@ -55,6 +52,15 @@ function effettuaAcquisto(utente, prices, ambassadors) {
   let isAmbassadorMsg = ""
   const discount = 0.30
 
+  const name = document.getElementById('name')
+  const lastName = document.getElementById('lastName')
+  const isAmbassador = document.getElementById('isAmbassador')
+  const carrello = document.getElementById('carrello')
+  const sconto = document.getElementById('sconto')
+  const spedizione = document.getElementById('spedizione')
+  const prezzoFinale = document.getElementById('prezzoFinale')
+  
+
   for (let i = 0; i < prices.length; i++) {
     total += prices[i]
   }
@@ -62,12 +68,25 @@ function effettuaAcquisto(utente, prices, ambassadors) {
   if (utente.isAmbassador) {
     discountedPrice = total - (total * discount)
     finalPrice = checkShippingCost(discountedPrice)
-    isAmbassadorMsg = "e' un ambassador"
+    isAmbassadorMsg = "E' un ambassador"
+    isAmbassador.style.color = "green"
     ambassadors.push(utente)
+    sconto.textContent = "Sconto del 30%"
+    sconto.style.display = "block"
   } else {
     finalPrice = checkShippingCost(total)
-    isAmbassadorMsg = "non e' un ambassador"
+    isAmbassadorMsg = "Non e' un ambassador"
+    isAmbassador.style.color = "red"
+    sconto.style.display = "none"
   }
+
+  
+  name.textContent = `Nome: ${utente.name}`
+  lastName.textContent = `Cognome: ${utente.lastName}`
+  isAmbassador.textContent = ` ${isAmbassadorMsg}`
+  carrello.textContent = `Prezzo carrello: ${total}`
+  spedizione.textContent = `Costo spedizione: ${50}`
+  prezzoFinale.textContent = `${finalPrice}`
   console.log(`${utente.name} ${utente.lastName} ${isAmbassadorMsg} , costo carrello: ${finalPrice}`)
 }
 
@@ -79,3 +98,4 @@ function checkShippingCost(price) {
     return price + 50
   }
 }
+
