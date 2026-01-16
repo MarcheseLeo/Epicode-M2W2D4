@@ -38,9 +38,9 @@ const prices = [34, 5, 2]
 let utenteCheEffettuaLAcquisto = amy //cambia il valore qui per provare se il tuo algoritmo funziona!
 
 let utenti = []
-utenti.push(marco, paul, amy)
 let ambassadors = []
 
+utenti.push(marco, paul, amy)
 
 for (let utente of utenti) {
   effettuaAcquisto(utente, prices, ambassadors)
