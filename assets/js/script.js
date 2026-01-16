@@ -49,11 +49,10 @@ for (let utente of utenti) {
 console.log(ambassadors)
 
 function effettuaAcquisto(utente, prices, ambassadors) {
+  let total = 0
   let discountedPrice = 0
   let finalPrice = 0
   let isAmbassadorMsg = ""
-  let total = 0
-  const shippingCost = 50
   const discount = 0.30
 
   for (let i = 0; i < prices.length; i++) {
@@ -73,6 +72,7 @@ function effettuaAcquisto(utente, prices, ambassadors) {
 }
 
 function checkShippingCost(price) {
+  const shippingCost = 50
   if (price >= 100) {
     return price
   } else {
