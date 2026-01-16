@@ -56,10 +56,10 @@ function effettuaAcquisto(utente) {
   const lastName = document.getElementById('lastName')
   const isAmbassador = document.getElementById('isAmbassador')
   const carrello = document.getElementById('carrello')
-  const sconto = document.getElementById('sconto')
   const spedizione = document.getElementById('spedizione')
   const prezzoFinale = document.getElementById('prezzoFinale')
   
+  name.innerHTML = ""
 
   for (let i = 0; i < prices.length; i++) {
     total += prices[i]
@@ -71,23 +71,20 @@ function effettuaAcquisto(utente) {
     isAmbassadorMsg = "E' un ambassador"
     isAmbassador.innerHTML = `<p>${isAmbassadorMsg}</p> <i class="fa-solid fa-check" style='color:green'></i>`
     ambassadors.push(utente)
-    sconto.textContent = "Sconto del 30%"
-    sconto.style.display = "block"
-    sconto.style.color = "blue"
+    prezzoFinale.innerHTML = `<h3>Prezzo totale:</h3> <p>${50}</p> <p style="font-size:0.6em; color:blue; display:inline">Sconto del 30%</p>`
   } else {
     finalPrice = checkShippingCost(total)
     isAmbassadorMsg = "Non e' un ambassador"
     isAmbassador.innerHTML = `<p>${isAmbassadorMsg}</p> <i class="fa-solid fa-xmark" style='color:red'></i>`
-    sconto.style.display = "none"
+    prezzoFinale.innerHTML = `<h3>Prezzo totale:</h3> <p>${50}</p>`
   }
 
   
   name.innerHTML = `<h3>Name:</h3> <p>${utente.name}</p>`
   lastName.innerHTML = `<h3>Cognome:</h3> <p>${utente.lastName}</p>`
-
   carrello.innerHTML = `<h3>Prezzo carrello:</h3> <p>${total}</p>`
   spedizione.innerHTML = `<h3>Costo spedizione:</h3> <p>${50}</p>`
-  prezzoFinale.innerHTML = `<h3>Prezzo totale:</h3> <p>${50}</p>`
+  
 
   console.log(`${utente.name} ${utente.lastName} ${isAmbassadorMsg} , costo carrello: ${finalPrice}`)
 }
